@@ -1,20 +1,447 @@
 /*! 版权所有，违者必究 */
-webpackJsonp([0],[
-/* 0 */,
-/* 1 */,
-/* 2 */
+webpackJsonp([0],{
+
+/***/ 35:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(36);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(5)("3331945f", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4747a169\",\"scoped\":true,\"hasInlineConfig\":false}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
+     var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4747a169\",\"scoped\":true,\"hasInlineConfig\":false}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ 36:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "\n#container[data-v-4747a169] {\n    width: 100%;\n    height: 100%;\n    font-size: 12px;\n    background-color: #e7ecef;\n}\n#header[data-v-4747a169] {\n    width: 100%;\n    height: 50px;\n    line-height: 50px;\n    background-color: #000;\n}\n#header ul[data-v-4747a169] {\n}\n#header ul li[data-v-4747a169] {\n    list-style: none;\n    float: left;\n    margin: 0 30px 0 0;\n}\n#header ul li a[data-v-4747a169] {\n    font-size: 20px;\n}\n#recommend[data-v-4747a169] {\n    margin: 10px 0;\n}\n#recommend .content[data-v-4747a169] {\n    padding: 2px 4px 2px 20px;\n    border: dashed 1px #f8cc7e;\n    background: #fffce7 ;\n    font: normal 12px/22px Arial;\n}\n#main[data-v-4747a169] {\n    margin: 20px 0 0 0;\n}\n#main .article[data-v-4747a169] {\n    border-bottom: 1px #ccc dashed;\n    margin: 0 0 20px 0;\n}\n#main .article .title a[data-v-4747a169] {\n    color: #000;\n    font-size: 20px;\n    font-weight: bold;\n}\n#main .article .introduction[data-v-4747a169] {\n    font-size: 14px;\n    color: #999;\n    line-height: 24px;\n}\n#main .article ul[data-v-4747a169] {\n    float: right;\n}\n#main .article ul li[data-v-4747a169] {\n    list-style: none;\n    float: left;\n    margin-left: 16px;\n    font-size: 10px;\n}\n#main .article ul li a[data-v-4747a169] {\n    font-size: 10px;\n}\n.card[data-v-4747a169] {\n    float: right;\n    width: 300px;\n    margin-bottom: 20px;\n}\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 37:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    data() {
+        return {
+            movieList: [{
+                name: '这个杀手不太冷',
+                url: 'https://movie.douban.com/subject/1295644/',
+                rate: 9.4
+            }, {
+                name: '霸王别姬',
+                url: 'https://movie.douban.com/subject/1291546/',
+                rate: 9.5
+            }, {
+                name: '千与千寻',
+                url: 'https://movie.douban.com/subject/1291561/',
+                rate: 9.2
+            }, {
+                name: '辛德勒的名单',
+                url: 'https://movie.douban.com/subject/1295124/',
+                rate: 9.4
+            }, {
+                name: '海上钢琴师',
+                url: 'https://movie.douban.com/subject/1292001/',
+                rate: 9.2
+            }],
+            randomMovieList: []
+
+        };
+    },
+    mounted() {
+        this.changeLimit();
+    },
+    methods: {
+        changeLimit() {
+            function getArrayItems(arr, num) {
+                const temp_array = [];
+                for (let index in arr) {
+                    temp_array.push(arr[index]);
+                }
+                const return_array = [];
+                for (let i = 0; i < num; i++) {
+                    if (temp_array.length > 0) {
+                        const arrIndex = Math.floor(Math.random() * temp_array.length);
+                        return_array[i] = temp_array[arrIndex];
+                        temp_array.splice(arrIndex, 1);
+                    } else {
+                        break;
+                    }
+                }
+                return return_array;
+            }
+            this.randomMovieList = getArrayItems(this.movieList, 5);
+        }
+    }
+});
+
+/***/ }),
+
+/***/ 38:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    attrs: {
+      "id": "container"
+    }
+  }, [_c('Affix', [_c('Row', {
+    attrs: {
+      "id": "header"
+    }
+  }, [_c('i-col', {
+    attrs: {
+      "span": "2"
+    }
+  }, [_vm._v(" ")]), _vm._v(" "), _c('i-col', {
+    attrs: {
+      "span": "20"
+    }
+  }, [_c('ul', [_c('li', [_c('a', [_vm._v("首页")])]), _vm._v(" "), _c('li', [_c('a', [_vm._v("关于")])]), _vm._v(" "), _c('li', [_c('a', [_vm._v("图片库")])]), _vm._v(" "), _c('li', [_c('a', [_vm._v("存档")])]), _vm._v(" "), _c('li', [_c('a', [_vm._v("登录/注册")])]), _vm._v(" "), _c('li', [_c('a', [_vm._v("test")])])])]), _vm._v(" "), _c('i-col', {
+    attrs: {
+      "span": "2"
+    }
+  }, [_vm._v(" ")])], 1)], 1), _vm._v(" "), _c('Row', {
+    attrs: {
+      "id": "recommend"
+    }
+  }, [_c('i-col', {
+    attrs: {
+      "span": "2"
+    }
+  }, [_vm._v(" ")]), _vm._v(" "), _c('i-col', {
+    staticClass: "content",
+    attrs: {
+      "span": "14"
+    }
+  }, [_vm._v("\n            每周荐书：Kotlin、分布式、Keras（评论送书） 【获奖公布】征文|你会为AI转型？ 热门搜索：java、\n            python,c++,spring,php\n        ")]), _vm._v(" "), _c('i-col', {
+    attrs: {
+      "span": "8"
+    }
+  }, [_vm._v(" ")])], 1), _vm._v(" "), _c('Row', {
+    attrs: {
+      "id": "main"
+    }
+  }, [_c('i-col', {
+    attrs: {
+      "span": "2"
+    }
+  }, [_vm._v(" ")]), _vm._v(" "), _c('i-col', {
+    attrs: {
+      "span": "14"
+    }
+  }, [_c('div', {
+    staticClass: "article"
+  }, [_c('div', {
+    staticClass: "title"
+  }, [_c('a', {
+    attrs: {
+      "href": "#"
+    }
+  }, [_vm._v("让世界充满AI—时代的开拓者（程序员）")])]), _vm._v(" "), _c('div', {
+    staticClass: "introduction"
+  }, [_vm._v("\n                    人工智能是一门涵盖多学科知识，而又被当今社会广泛应用于多领域，给人带来便捷、高效的同时，\n                    又让业界为其担心的交叉学科知识的综合产物。随着各种智能机器人开始服务于各大领域，有超强力量的机械手臂，\n                    高效解决问题的专家系统，公众日常可接触到的可穿戴智能设备，\n                    从智能手机到各类功能的3D打印技术，从谷歌眼镜到全息投影，各类机器设备如雨后春笋不断涌出。\n\n\n                ")]), _vm._v(" "), _c('ul', {
+    staticClass: "commend"
+  }, [_c('li', [_vm._v("2017-8-18 13:34")]), _vm._v(" "), _c('li', [_c('a', {
+    attrs: {
+      "href": "#"
+    }
+  }, [_vm._v("阅读")]), _vm._v("(111)")]), _vm._v(" "), _c('li', [_c('a', {
+    attrs: {
+      "href": "#"
+    }
+  }, [_vm._v("评论")]), _vm._v("(222)")]), _vm._v(" "), _c('li', [_c('a', {
+    attrs: {
+      "href": "#"
+    }
+  }, [_vm._v("点赞")]), _vm._v("(333)")])])])]), _vm._v(" "), _c('i-col', {
+    attrs: {
+      "span": "6",
+      "id": "sider"
+    }
+  }, [_c('Row', {
+    staticClass: "card"
+  }, [_vm._v("\n                书签\n                "), _c('Tag', {
+    attrs: {
+      "color": "blue"
+    }
+  }, [_vm._v("标签一")]), _vm._v(" "), _c('Tag', {
+    attrs: {
+      "color": "green"
+    }
+  }, [_vm._v("标签二")]), _vm._v(" "), _c('Tag', {
+    attrs: {
+      "color": "red"
+    }
+  }, [_vm._v("标签三")]), _vm._v(" "), _c('Tag', {
+    attrs: {
+      "color": "yellow"
+    }
+  }, [_vm._v("标签四")])], 1), _vm._v(" "), _c('Row', {
+    staticClass: "card"
+  }, [_vm._v("\n                最新文章\n                "), _c('ul', [_c('li', [_c('a', [_vm._v("文章1")])]), _vm._v(" "), _c('li', [_c('a', [_vm._v("文章2")])]), _vm._v(" "), _c('li', [_c('a', [_vm._v("文章3")])])])]), _vm._v(" "), _c('Card', {
+    staticClass: "card"
+  }, [_c('p', {
+    slot: "title"
+  }, [_c('Icon', {
+    attrs: {
+      "type": "ios-film-outline"
+    }
+  }), _vm._v("\n                    经典文章\n                ")], 1), _vm._v(" "), _c('a', {
+    attrs: {
+      "href": "#"
+    },
+    on: {
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.changeLimit($event)
+      }
+    },
+    slot: "extra"
+  }, [_c('Icon', {
+    attrs: {
+      "type": "ios-loop-strong"
+    }
+  }), _vm._v("\n                    换一换\n                ")], 1), _vm._v(" "), _c('ul', _vm._l((_vm.randomMovieList), function(item) {
+    return _c('li', [_c('a', {
+      attrs: {
+        "href": item.url,
+        "target": "_blank"
+      }
+    }, [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c('span', [_vm._l((4), function(n) {
+      return _c('Icon', {
+        key: n,
+        attrs: {
+          "type": "ios-star"
+        }
+      })
+    }), (item.rate >= 9.5) ? _c('Icon', {
+      attrs: {
+        "type": "ios-star"
+      }
+    }) : _c('Icon', {
+      attrs: {
+        "type": "ios-star-half"
+      }
+    }), _vm._v("\n                " + _vm._s(item.rate) + "\n            ")], 2)])
+  }))]), _vm._v(" "), _c('Card', {
+    staticClass: "card"
+  }, [_c('p', {
+    slot: "title"
+  }, [_c('Icon', {
+    attrs: {
+      "type": "ios-film-outline"
+    }
+  }), _vm._v("\n                    友情社区\n                ")], 1), _vm._v(" "), _c('a', {
+    attrs: {
+      "href": "#"
+    },
+    on: {
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.changeLimit($event)
+      }
+    },
+    slot: "extra"
+  }, [_c('Icon', {
+    attrs: {
+      "type": "ios-loop-strong"
+    }
+  }), _vm._v("\n                    换一换\n                ")], 1), _vm._v(" "), _c('ul', [_c('li', [_c('a', {
+    attrs: {
+      "href": "#"
+    }
+  }, [_vm._v("友情社区1")])]), _vm._v(" "), _c('li', [_c('a', {
+    attrs: {
+      "href": "#"
+    }
+  }, [_vm._v("友情社区2")])]), _vm._v(" "), _c('li', [_c('a', {
+    attrs: {
+      "href": "#"
+    }
+  }, [_vm._v("友情社区3")])]), _vm._v(" "), _c('li', [_c('a', {
+    attrs: {
+      "href": "#"
+    }
+  }, [_vm._v("友情社区4")])])])])], 1), _vm._v(" "), _c('i-col', {
+    attrs: {
+      "span": "2"
+    }
+  }, [_vm._v(" ")])], 1)], 1)
+}
+var staticRenderFns = []
+render._withStripped = true
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-4747a169", esExports)
+  }
+}
+
+/***/ }),
+
+/***/ 6:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_4747a169_hasScoped_true_node_modules_vue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_4747a169_hasScoped_true_node_modules_vue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(38);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(20)
+  __webpack_require__(35)
 }
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(4)
 /* script */
 
 /* template */
@@ -55,431 +482,6 @@ if (false) {(function () {
 /* harmony default export */ __webpack_exports__["default"] = (Component.exports);
 
 
-/***/ }),
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function (useSourceMap) {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if (item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
-			}
-		}).join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function (modules, mediaQuery) {
-		if (typeof modules === "string") modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for (var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if (typeof id === "number") alreadyImportedModules[id] = true;
-		}
-		for (i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if (typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if (mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if (mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
-
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */';
-		});
-
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-	}
-
-	return [content].join('\n');
-}
-
-// Adapted from convert-source-map (MIT)
-function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
-}
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/*
-  MIT License http://www.opensource.org/licenses/mit-license.php
-  Author Tobias Koppers @sokra
-  Modified by Evan You @yyx990803
-*/
-
-var hasDocument = typeof document !== 'undefined'
-
-if (typeof DEBUG !== 'undefined' && DEBUG) {
-  if (!hasDocument) {
-    throw new Error(
-    'vue-style-loader cannot be used in a non-browser environment. ' +
-    "Use { target: 'node' } in your Webpack config to indicate a server-rendering environment."
-  ) }
-}
-
-var listToStyles = __webpack_require__(15)
-
-/*
-type StyleObject = {
-  id: number;
-  parts: Array<StyleObjectPart>
-}
-
-type StyleObjectPart = {
-  css: string;
-  media: string;
-  sourceMap: ?string
-}
-*/
-
-var stylesInDom = {/*
-  [id: number]: {
-    id: number,
-    refs: number,
-    parts: Array<(obj?: StyleObjectPart) => void>
-  }
-*/}
-
-var head = hasDocument && (document.head || document.getElementsByTagName('head')[0])
-var singletonElement = null
-var singletonCounter = 0
-var isProduction = false
-var noop = function () {}
-
-// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-// tags it will allow on a page
-var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase())
-
-module.exports = function (parentId, list, _isProduction) {
-  isProduction = _isProduction
-
-  var styles = listToStyles(parentId, list)
-  addStylesToDom(styles)
-
-  return function update (newList) {
-    var mayRemove = []
-    for (var i = 0; i < styles.length; i++) {
-      var item = styles[i]
-      var domStyle = stylesInDom[item.id]
-      domStyle.refs--
-      mayRemove.push(domStyle)
-    }
-    if (newList) {
-      styles = listToStyles(parentId, newList)
-      addStylesToDom(styles)
-    } else {
-      styles = []
-    }
-    for (var i = 0; i < mayRemove.length; i++) {
-      var domStyle = mayRemove[i]
-      if (domStyle.refs === 0) {
-        for (var j = 0; j < domStyle.parts.length; j++) {
-          domStyle.parts[j]()
-        }
-        delete stylesInDom[domStyle.id]
-      }
-    }
-  }
-}
-
-function addStylesToDom (styles /* Array<StyleObject> */) {
-  for (var i = 0; i < styles.length; i++) {
-    var item = styles[i]
-    var domStyle = stylesInDom[item.id]
-    if (domStyle) {
-      domStyle.refs++
-      for (var j = 0; j < domStyle.parts.length; j++) {
-        domStyle.parts[j](item.parts[j])
-      }
-      for (; j < item.parts.length; j++) {
-        domStyle.parts.push(addStyle(item.parts[j]))
-      }
-      if (domStyle.parts.length > item.parts.length) {
-        domStyle.parts.length = item.parts.length
-      }
-    } else {
-      var parts = []
-      for (var j = 0; j < item.parts.length; j++) {
-        parts.push(addStyle(item.parts[j]))
-      }
-      stylesInDom[item.id] = { id: item.id, refs: 1, parts: parts }
-    }
-  }
-}
-
-function createStyleElement () {
-  var styleElement = document.createElement('style')
-  styleElement.type = 'text/css'
-  head.appendChild(styleElement)
-  return styleElement
-}
-
-function addStyle (obj /* StyleObjectPart */) {
-  var update, remove
-  var styleElement = document.querySelector('style[data-vue-ssr-id~="' + obj.id + '"]')
-
-  if (styleElement) {
-    if (isProduction) {
-      // has SSR styles and in production mode.
-      // simply do nothing.
-      return noop
-    } else {
-      // has SSR styles but in dev mode.
-      // for some reason Chrome can't handle source map in server-rendered
-      // style tags - source maps in <style> only works if the style tag is
-      // created and inserted dynamically. So we remove the server rendered
-      // styles and inject new ones.
-      styleElement.parentNode.removeChild(styleElement)
-    }
-  }
-
-  if (isOldIE) {
-    // use singleton mode for IE9.
-    var styleIndex = singletonCounter++
-    styleElement = singletonElement || (singletonElement = createStyleElement())
-    update = applyToSingletonTag.bind(null, styleElement, styleIndex, false)
-    remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true)
-  } else {
-    // use multi-style-tag mode in all other cases
-    styleElement = createStyleElement()
-    update = applyToTag.bind(null, styleElement)
-    remove = function () {
-      styleElement.parentNode.removeChild(styleElement)
-    }
-  }
-
-  update(obj)
-
-  return function updateStyle (newObj /* StyleObjectPart */) {
-    if (newObj) {
-      if (newObj.css === obj.css &&
-          newObj.media === obj.media &&
-          newObj.sourceMap === obj.sourceMap) {
-        return
-      }
-      update(obj = newObj)
-    } else {
-      remove()
-    }
-  }
-}
-
-var replaceText = (function () {
-  var textStore = []
-
-  return function (index, replacement) {
-    textStore[index] = replacement
-    return textStore.filter(Boolean).join('\n')
-  }
-})()
-
-function applyToSingletonTag (styleElement, index, remove, obj) {
-  var css = remove ? '' : obj.css
-
-  if (styleElement.styleSheet) {
-    styleElement.styleSheet.cssText = replaceText(index, css)
-  } else {
-    var cssNode = document.createTextNode(css)
-    var childNodes = styleElement.childNodes
-    if (childNodes[index]) styleElement.removeChild(childNodes[index])
-    if (childNodes.length) {
-      styleElement.insertBefore(cssNode, childNodes[index])
-    } else {
-      styleElement.appendChild(cssNode)
-    }
-  }
-}
-
-function applyToTag (styleElement, obj) {
-  var css = obj.css
-  var media = obj.media
-  var sourceMap = obj.sourceMap
-
-  if (media) {
-    styleElement.setAttribute('media', media)
-  }
-
-  if (sourceMap) {
-    // https://developer.chrome.com/devtools/docs/javascript-debugging
-    // this makes source maps inside style tags work properly in Chrome
-    css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
-    // http://stackoverflow.com/a/26603875
-    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
-  }
-
-  if (styleElement.styleSheet) {
-    styleElement.styleSheet.cssText = css
-  } else {
-    while (styleElement.firstChild) {
-      styleElement.removeChild(styleElement.firstChild)
-    }
-    styleElement.appendChild(document.createTextNode(css))
-  }
-}
-
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports) {
-
-/**
- * Translates the list format produced by css-loader into something
- * easier to manipulate.
- */
-module.exports = function listToStyles(parentId, list) {
-  var styles = [];
-  var newStyles = {};
-  for (var i = 0; i < list.length; i++) {
-    var item = list[i];
-    var id = item[0];
-    var css = item[1];
-    var media = item[2];
-    var sourceMap = item[3];
-    var part = {
-      id: parentId + ':' + i,
-      css: css,
-      media: media,
-      sourceMap: sourceMap
-    };
-    if (!newStyles[id]) {
-      styles.push(newStyles[id] = { id: id, parts: [part] });
-    } else {
-      newStyles[id].parts.push(part);
-    }
-  }
-  return styles;
-};
-
-/***/ }),
-/* 16 */,
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(21);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(14)("3331945f", content, false);
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4747a169\",\"scoped\":true,\"hasInlineConfig\":false}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
-     var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4747a169\",\"scoped\":true,\"hasInlineConfig\":false}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 21 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(13)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 22 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["a"] = ({
-    data() {
-        return {};
-    },
-    mounted() {},
-    methods: {}
-});
-
-/***/ }),
-/* 23 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_vm._v("\n    index.vue\n\n")])
-}
-var staticRenderFns = []
-render._withStripped = true
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-4747a169", esExports)
-  }
-}
-
 /***/ })
-]);
+
+});
